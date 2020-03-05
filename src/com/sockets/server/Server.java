@@ -4,18 +4,15 @@ import java.io.*;
 import java.util.*;
 import java.net.*;
 
-// Server class
-
 /**
- *
+ * Clase encargada de aceptar a los clientes y almacenarlos en hilos.
  */
 public class Server
 {
 
-    // Vector to store active clients
     static Vector<ClientHandler> ar = new Vector<>();
 
-    // counter for clients
+    // count of clients
     static int i = 1;
 
     /**
@@ -23,26 +20,21 @@ public class Server
      * @param args
      * @throws IOException
      */
-    public static void main(String[] args) throws IOException
-    {
-        // server is listening on port 1234
-        ServerSocket ss = new ServerSocket(1234);
+    public static void main(String[] args) throws IOException {
 
+        ServerSocket ss = new ServerSocket(1234);
         Socket s;
 
-        // running infinite loop for getting
-        // client request
-        while (true)
-        {
-            // Accept the incoming request
+        /**
+         * Ciclo encargado de aceptar clientes y crear los hilos correspondientes
+         */
+        while (true) {
+
             s = ss.accept();
 
             InetAddress address = s.getInetAddress();
             String hostIP = address.getHostAddress();
             System.out.println(hostIP);
-
-
-
 
             System.out.println("New client request received : " + s);
 

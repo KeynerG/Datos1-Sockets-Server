@@ -5,7 +5,7 @@ import java.net.*;
 import java.util.*;
 
 /**
- *
+ * Clase encargada de manejar los datos de I/O de los clientes.
  */
 class ClientHandler implements Runnable
 {
@@ -18,7 +18,7 @@ class ClientHandler implements Runnable
     private String ip;
 
     /**
-     *
+     * Constructor de la clase.
      * @param s
      * @param ip
      * @param name
@@ -38,6 +38,10 @@ class ClientHandler implements Runnable
     public void run() {
 
         String received;
+
+        /**
+         * Ciclo que se encarga de recivir y enviar los mensajes a los respectivos clientes.
+         */
         while (true) {
             try {
                 // receive the string
